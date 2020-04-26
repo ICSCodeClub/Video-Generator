@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "trusty-diorama-274103",
+  "private_key_id": "3a2116843383cee001b00a2c69ab5dcc2babea8c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCoGn/X9NQYqDhd\nzfxqzW7ppQya6Lso7k3jDL6gSlqmloPC1aGmkAziYUdJcHVOe/rEc+N9/cgFU/7m\nsEvG2J3mlb9Hv1JBzczefHvDVjr29lUIDBqVXfivFIWnsbdau2mYRgCwo5Lksasu\ncd9q8Q7jsAaJ2Odfqqv3P+PWK9izMFvUBgYCT/fkX58wsDdeCLqbo9nAZVBGrFku\nTA6Knd1a9zGV3uqq5rZ1A7Z6kjBNJQiOSj/CpmGd/QFBrpbD1m48UT7FjGX25S16\nFXxUUGqhHk1/OhKI7o8eWHrpjfJQrxVbQ6kO2KByVU5sPrRImKmD860iDMcI+MHG\n6ty8GdUlAgMBAAECggEAA+SfNtNg8RQ+P+/kC14oFimgHdtLcFJ6g8pZBNHMASUl\ntoaniHm4DqsVkU4VLWTiJRgQ+es9bWApXFLTYm7EU2F+7UyxPTxkpPdpj1fJJEyG\nohnTqMdlGbrmMIDFYAjMlH30iKK1JW426muxMqMUBvJd6GXZT+YeNuroHh7kVRv9\nPIdOMzIKOcndXMFSkHAbHSKjO3GLuRnKSEB+NfiqvvrrDnXuD3N9HKg5qu5uv4tW\nRLuk/xSkODtYyxXvld7DqZ/4nJ8K2G+1nzxaJYnzb1ATq11lZ2OydGIkYsYQ+0H0\nzIG/yHQyuT5/WrRkUli96vUQxApFR3b+Z54rv4HrOQKBgQDRbyGgLA8ugvt2AvTA\ngQG2kBxZCuHN9/NZRr6/0eADw0Y624W46lslLYnxd+FPKEYAZpyl+VGmRqqdtF3M\n6kzyVtosmicwAGUBF97jUo3vLF12tWv8w3PrZStlN3cL4GKn8m9kc09sY0rlz2hZ\n4GdS8GXhVmSjFsB3wXD39XcJGQKBgQDNetq+uesH5uD+cUvAG11d0k65qfR9hJGM\n5/gqrJ4wAvAqvblgEoLJNguzBUnVYhWWFGFH29yLoO91kamQk5swWb20PxqUYUKO\neZQacBiX1SWJ15Uym6yCD1m8saI4pzYcdCoHxHvj/fe2NZG97LcMqj4wIwWoGiYY\nPqSMPGHR7QKBgBG8ZY6Y7Jg1w3HVAkEjK6/4OE5aG5FDxDn1QcYg0eW/rbziRkrI\nnftiBeKLEmuPr43tIqrzmDSKm3xLf/4QgX+sV0GbtGHeRq93BAsgPKDakvewmXqI\nWtK+eJRTxCMfV3t9jm1lTn6RUhBwJhgmZtmhPh99H3yoOphpq1V0ViZRAoGBAMI2\n9LqBD90QJGlavLZ/Juie9zoVoblhrBD60F3Fel725/n+CVD9LhDwvG4g+YBujOil\nqq046mQvYSZG33Z/jZdNuzi6zGyi4T25PHsgqJ4aILkAw0xqR8tGpxLq8uGJamPK\niE9/L3p3ecMHLxHMw9d8sfrdn2McFBWmX/EMwYihAoGATiK5N8axzm4Cd6xq7AXn\ndTlymodcf73dHFFyg0pruDgvwnGKEp8XNi802Rc8OpxKdc9DdPAY941/0Wm+8vL0\nk7I1yMvv+ZcmB+PjUN7sNTORxn0Yk/Ue6YXIDfZJOH/IeYnygHFBGkIvsznZ8Uzl\nVpUjV/Zl1YcwTPLVI00kcXU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pythonspeechgen@trusty-diorama-274103.iam.gserviceaccount.com",
+  "client_id": "107523280435037195181",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pythonspeechgen%40trusty-diorama-274103.iam.gserviceaccount.com"
+}
