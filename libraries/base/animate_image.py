@@ -1,7 +1,5 @@
 import os, shutil, time
 from moviepy.editor import *
-import pixabay
-from gtts import gTTS
 
 THREADS = 1
 SMOOTHNESS = 2.3
@@ -15,10 +13,12 @@ def renderImgZoom(imgPath, duration):
     os.makedirs(str(FOLDER), exist_ok=True)
     # First, get the file name without extension for saving later
     file_name = ""
-    if '/' not in imgPath:
-        file_name = imgPath[:imgPath.rfind('.')]
-    else:
+    if '/' in imgPath:
         file_name = imgPath[imgPath.rfind('/')+1:imgPath.rfind('.')]
+    elif '\\' in imgPath:
+        file_name = imgPath[imgPath.rfind('\\')+1:imgPath.rfind('.')]
+    else:
+        file_name = imgPath[:imgPath.rfind('.')]
 
     # Get the image clip and save its size
     imgClip = ImageClip(imgPath)
@@ -29,9 +29,9 @@ def renderImgZoom(imgPath, duration):
     imgClip = CompositeVideoClip([imgClip]).resize(width=orgSize[0])
     # Render the clip
     vid = CompositeVideoClip([imgClip.set_position(('center', 'center'))], size=orgSize)
-    vid.write_videofile(DIR+'/'+FOLDER+'/'+file_name+'.webm',bitrate="15000k", fps=20,verbose=False, logger=None)
+    vid.write_videofile(DIR+'\\'+FOLDER+'\\'+file_name+'.webm',bitrate="15000k", fps=20,verbose=False, logger=None)
     # Return the location
-    return DIR+'/'+FOLDER+'/'+file_name+'.webm'
+    return DIR+'\\'+FOLDER+'\\'+file_name+'.webm'
 
 # Returns the VideoClip that is the result of combining target video and audio files
 def videoAudioCombine(vidPath, audioPath):
@@ -57,6 +57,7 @@ def imageAudioCombine(imgPath, audioPath):
     audioclip = AudioFileClip(audioPath)
     
     videopath = renderImgZoom(imgPath, audioclip.duration)
+    print("vidpath = "+str(videopath))
     combinedclip = videoAudioCombine(videopath, audioPath)
     return combinedclip
 
@@ -83,10 +84,6 @@ def getQueue():
 
 # Clears the temp folder
 def clear():
-    shutil.rmtree(DIR+'/'+FOLDER, ignore_errors=True, onerror=None)
+    shutil.rmtree(DIR+'\\'+FOLDER, ignore_errors=True, onerror=None)
     os.makedirs(str(FOLDER), exist_ok=True)
-
-
-#videoclip = videoAudioCombine(DIR+"/temp/happy.webm",DIR+"/she is sad.wav")
-#videoclip.write_videofile("new_filename.webm")
 

@@ -1,3 +1,4 @@
+import os
 import urllib.request, json, shutil
 from requests import get  # to make GET request
 from numpy.random import choice # for advanced choices
@@ -6,6 +7,8 @@ from numpy.random import choice # for advanced choices
 #https://pixabay.com/api/docs/
 
 KEY = '13233745-b436d2a4655df3612ec66cf71'
+
+DIR = os.path.split(os.path.realpath(__file__))[0]
 FOLDER = 'temp'
 RANDOM_CHANCE = 0.7
 
@@ -27,7 +30,7 @@ def getPicsJSON(query):
 def getRandomSinglePicURL(query):
     data = getPicsJSON(query)
     if int(data['totalHits']) <= 0:
-        return
+        return None
 
     # Weigh each entry by their likes, downloads, and favorites
     weights = []
@@ -45,23 +48,28 @@ def getRandomSinglePicURL(query):
 def downloadPicFromUrl(url):
     url = str(url)
     file_name = url[url.rfind('/')+1:len(url)]
-    download(url, FOLDER+'/'+file_name)
-    return FOLDER+'/'+file_name
+    download(url, getFolder()+'/'+file_name)
+    return getFolder()+file_name
 
 def downloadPicFromQuery(query):
     if len(query) < 3:
         query = "uplifting"
-    url = str(getRandomSinglePicURL(query))+"";
+    url = str(getRandomSinglePicURL(query));
     file_ext = url[url.rfind('.'):len(url)]
-    if len(url) > 2:
-        download(url, FOLDER+'/'+query.replace(".","")+file_ext)
-        return FOLDER+'/'+query.replace(".","")+file_ext
+    if url is None or url == 'None' or url == "None":
+        return None
     else:
-        return 'default.jpg'
-        
+        print("url: "+url)
+        download(url, getFolder()+query.replace(".","")+file_ext)
+        return getFolder()+query.replace(".","")+file_ext
+
+def downloadPicFromQuerySafe(query):
+    imgPath = downloadPicFromQuery(query)
+    if imgPath is None or imgPath == 'None' or imgPath == "None":
+        return getFolder()+'default.jpg'
 
 def getFolder():
-    return FOLDER+'/'
+    return DIR+'\\'+FOLDER+'\\'
 
 def downloadFromQuery(query):
     url = getRandomSinglePicURL(query)
@@ -69,7 +77,10 @@ def downloadFromQuery(query):
 
 def download(url, file_name):
     if url is None:
-        return 'default.jpg'
+        return getFolder()+'default.jpg'
+    #make directory
+    os.makedirs(os.path.dirname(file_name), exist_ok=True)
+    
     # open in binary mode
     with open(file_name, "wb") as file:
         # get request
@@ -95,4 +106,5 @@ def averageLists(l1,l2):
     return outlist
 
 #downloads the default pic in the root folder
-download(DEFAULT_PIC,'default.jpg')
+os.makedirs(str(FOLDER), exist_ok=True)
+download(DEFAULT_PIC,getFolder()+'default.jpg')

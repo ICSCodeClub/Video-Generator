@@ -3,17 +3,14 @@
 
 
 from google.cloud import texttospeech
-import string_utils
 import os, re, string
 
 # Creating the client
 # ===================
-
-
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r''+os.path.dirname(os.path.realpath(__file__))+'\\google-key.json'
 client = texttospeech.TextToSpeechClient()
 
-FOLDER = 'temp'
+FOLDER = 'base\\temp'
 DIR = os.path.split(os.path.realpath(__file__))[0]
 
 #print("\n"+str(client.list_voices())+"\n")
@@ -46,15 +43,21 @@ def writeOutput(audio):
         
 def writeOutputWithName(audio, name):
     # Shorten the name (in case it's too long)
-    concatText = string_utils.toFileName(name)
+    concatText = toFileName(name)
     while len(concatText) > 40 and '_' in concatText:
         concatText = concatText[0:concatText.rfind('_')]
     if len(concatText) > 40:
         concatText = concatText[0:40]
         
     # Then write the file
-    with open(FOLDER+'/'+concatText+'.wav', 'wb') as out:
+    os.makedirs(getFolder()+os.path.dirname(name), exist_ok=True)
+    with open(getFolder()+concatText+'.wav', 'wb') as out:
         out.write(audio)
 
     # Now, return the path
-    return DIR+'/'+FOLDER+'/'+concatText+'.wav'
+    return getFolder()+concatText+'.wav'
+def getFolder():
+    return DIR+'\\'+FOLDER+'\\'
+def toFileName(s):
+    file_name = "".join( x for x in s.lower() if (x.isalnum() or x in "_- ")).replace(' ','_').replace('.','')
+    return file_name
