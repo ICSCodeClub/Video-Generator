@@ -85,5 +85,6 @@ def getQueue():
 # Clears the temp folder
 def clear():
     shutil.rmtree(DIR+'\\'+FOLDER, ignore_errors=True, onerror=None)
-    os.makedirs(str(FOLDER), exist_ok=True)
+    os.makedirs(DIR+'\\'+FOLDER, exist_ok=True)
 
+os.makedirs(DIR+'\\'+FOLDER, exist_ok=True)

@@ -1,4 +1,7 @@
 __pycache__\
 libraries\google-key.json
 google-key.json
+*\google-key.json
 *.pyc
+libraries/google-key.json
+*.json
